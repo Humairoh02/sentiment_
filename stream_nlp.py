@@ -4,6 +4,21 @@ import numpy as np
 from keras.models import load_model
 from keras.preprocessing.sequence import pad_sequences
 import tensorflow as tf
+import os
+import nltk
+
+# Ensure nltk data is available
+nltk_data_path = os.path.join(os.getcwd(), 'nltk_data')
+nltk.data.path.append(nltk_data_path)
+
+# Download stopwords if not already available
+try:
+    from nltk.corpus import stopwords
+    stopwords.words('english')
+    print("Stopwords found.")
+except LookupError:
+    print("Stopwords not found. Downloading...")
+    nltk.download('stopwords', download_dir=nltk_data_path)
 
 # Define custom metrics
 @tf.keras.utils.register_keras_serializable()
