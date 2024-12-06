@@ -4,6 +4,14 @@ import numpy as np
 from keras.models import load_model
 from keras.preprocessing.sequence import pad_sequences
 import tensorflow as tf
+import os
+
+# Path ke folder nltk_data
+nltk.data.path.append(os.path.join(os.getcwd(), 'nltk_data'))
+
+# Resource tersedia
+nltk.download('stopwords', download_dir=os.path.join(os.getcwd(), 'nltk_data'))
+
 
 # Define custom metrics
 @tf.keras.utils.register_keras_serializable()
