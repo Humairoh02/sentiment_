@@ -4,23 +4,6 @@ import numpy as np
 from keras.models import load_model
 from keras.preprocessing.sequence import pad_sequences
 import tensorflow as tf
-import os
-
-# Path ke folder nltk_data
-nltk_data_path = os.path.join(os.getcwd(), 'nltk_data')
-
-# Path ke nltk
-nltk.data.path.append(nltk_data_path)
-
-# Validasi resource
-try:
-    from nltk.corpus import stopwords
-    stopwords.words('english')
-    print("Stopwords ditemukan dan berhasil dimuat.")
-except LookupError as e:
-    print("Stopwords tidak ditemukan. Sedang mendownload...")
-    nltk.download('stopwords', download_dir=nltk_data_path)
-
 
 # Define custom metrics
 @tf.keras.utils.register_keras_serializable()
